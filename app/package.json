@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.8.2",
     "antd-mobile": "^2.3.4",
+<<<<<<< HEAD
     "rc-form": "2.4.11",
+=======
+    "node-sass": "4.14.1",
+>>>>>>> 63ac3324697cc2da074e71c9a0a3dc001ec0353d
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "sass-resources-loader": "^2.1.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

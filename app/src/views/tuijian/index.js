@@ -1,16 +1,20 @@
 /* 推荐 */
 
-import React from 'react'
+import React from "react";
+import "./index.scss";
+
 
 
 class recommend extends React.Component {
-
   render() {
     return (
-      <div><h2>推荐</h2></div>
-    )
+      <div id="tuijian">
+        <div className="box">
+          <div className="search_button"></div>
+        </div>
+      </div>
+    );
   }
-
 }
 
 export default recommend;
