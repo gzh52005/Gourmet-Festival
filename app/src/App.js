@@ -17,11 +17,12 @@ const Classify = lazy(() => import("./views/fenlei/index")); //分类
 const Menu = lazy(() => import("./views/caidan/index")); //菜单
 const Collect = lazy(() => import("./views/shouc/index")); //收藏
 const Login = lazy(() => import("./views/login/index")); //登录
+const Reg = lazy(() => import("./views/reg/index")); //注册
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props,6666)
+    // console.log(props,6666)
     this.state = {
       menu: [
         {
@@ -126,6 +127,7 @@ class App extends React.Component {
             <Route path="/menu" component={Menu} />
             <Route path="/collect" component={Collect} />
             <Route path="/login"  component={Login} />
+            <Route path="/reg"  component={Reg} />
             <Route
               path="/nopage"
               render={() => (
