@@ -4,6 +4,10 @@ import React, { Suspense, lazy } from "react";
 import { Flex } from "antd-mobile";
 import {
   HomeOutlined,
+  PlayCircleOutlined,
+  HeartOutlined,
+  SketchOutlined,
+  ScheduleOutlined,
   UsergroupAddOutlined,
   ReadOutlined,
   MedicineBoxOutlined,
@@ -32,25 +36,25 @@ class App extends React.Component {
           id: 2,
           title: "视频",
           path: "/video",
-          icon: <UsergroupAddOutlined style={{ fontSize: "22px" }} />,
+          icon: <PlayCircleOutlined style={{ fontSize: "22px" }} />,
         },
         {
           id: 3,
           title: "分类",
           path: "/classify",
-          icon: <ReadOutlined style={{ fontSize: "22px" }} />,
+          icon: <ScheduleOutlined style={{ fontSize: "22px" }} />,
         },
         {
           id: 4,
           title: "菜单",
           path: "/menu",
-          icon: <MedicineBoxOutlined style={{ fontSize: "22px" }} />,
+          icon: <SketchOutlined style={{ fontSize: "22px" }} />,
         },
         {
           id: 5,
           title: "收藏",
           path: "/collect",
-          icon: <UserOutlined style={{ fontSize: "22px" }} />,
+          icon: <HeartOutlined style={{ fontSize: "22px" }} />,
         },
       ],
       sign: 1,
@@ -74,7 +78,7 @@ class App extends React.Component {
                 <NavLink to={item.path}>
                   <div
                     className="flexItem"
-                    style={item.id === sign ? { color: "blue" } : {}}
+                    style={item.id === sign ? { color: "#f15a4f" } : {}}
                     onClick={this.setSign.bind(this, item.id)}
                   >
                     {item.icon}
