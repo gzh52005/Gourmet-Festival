@@ -4,7 +4,7 @@ import './css/reset.css';
 
 import {HashRouter,BrowserRouter as Router,Route,Redirect,Switch,Link,NavLink, withRouter} from 'react-router-dom';
 
-// import { Menu,Row, Col ,Button} from 'antd';
+import { Menu,Row, Col ,Button} from 'antd';
 
 //路由懒加载的实现：异步载入资源
 //import AuthRoute from "./permission"; //路由守卫
