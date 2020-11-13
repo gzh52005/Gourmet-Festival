@@ -1,0 +1,18 @@
+@import '../../../style/fit.scss';
+#three{
+    .swiper-container{
+        .swiper-wrapper{
+            .swiper-slide{
+                display: flex;
+                .box{
+                    width: 50%;
+                    a{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
