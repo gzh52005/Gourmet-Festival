@@ -5,13 +5,9 @@ import { Flex } from "antd-mobile";
 import {
   HomeOutlined,
   PlayCircleOutlined,
-  HeartOutlined,
-  SketchOutlined,
   ScheduleOutlined,
-  UsergroupAddOutlined,
-  ReadOutlined,
-  MedicineBoxOutlined,
-  UserOutlined,
+  SketchOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 import { withRouter, Switch, Route, Redirect, NavLink } from "react-router-dom";
 //路由懒加载
@@ -120,3 +116,8 @@ class App extends React.Component {
 }
 
 export default App;
+// HomeOutlined,
+// PlayCircleOutlined,
+// ScheduleOutlined,
+// SketchOutlined,
+// HeartOutlined,
