@@ -1,0 +1,103 @@
+
+@charset "utf-8";
+h1,h2,h3,h4,h5,h6,hgroup,
+/* 标题 */
+
+p,a,b,
+
+dl,dt,dd,ul,ol,li,nav,figure,figcaption,
+/* 列表元素 */
+
+strong,span,i,em,img,mark,
+/* 行内元素 */
+
+div,section,article,aside,header,footer,
+
+table,tr,td,th,thead,tbody,tfoot,
+/* 表格元素 */
+
+form,input,button,select,option,textarea,label,fieldset,legend,datalist,
+/* 表单元素 */
+
+video,source,audio,
+
+iframe,
+/* 内联框架 */
+
+body,html{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+ul,ol,li{
+    list-style: none;
+}
+html,body{
+    height: 100%;
+}
+img{
+    border: 0;
+}
+/* 插入类属性标签 */
+.claer_fix::after{
+    content: " ";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.f12{
+    font-size: 12px;
+}
+.f14{
+    font-size: 14px;
+}
+.f16{
+    font-size: 16px;
+}
+textarea{
+    resize:none;
+}
+input,button{
+    outline: none;
+}
+/* 禁止文本域拉伸  根据需求 */
+textarea{
+    resize: none;
+}
+input,button,textarea{
+    outline: none;
+}
+/* 借代标签 */
+i{
+    font-style: normal;
+}
+em{
+    font-style: normal;
+}
+b{
+    font-weight: normal;
+}
+strong{
+    font-weight: normal;
+}
+/* 单行文本溢出隐藏 */
+.line-hidden{
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+

@@ -1,0 +1,40 @@
+@import '../../../style/fit.scss';
+#tjlinkbox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 vw(16);
+    .tjlink{
+        width: vw(104);
+        a{
+            display: block;
+            margin-bottom: vw(20);
+            height: vw(42);
+            background-color: #fff;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            color: #333;
+            span{
+                display: inline-block;
+                margin-right: vw(4);
+                color: #fe9b95;
+            }
+            p{
+                display: inline-block;
+                font-size: vw(13);
+                line-height: vw(42);
+                font-weight: bold;
+            }
+        }
+    }
+    .tjlink_spe{
+        a{
+            background-color: #fe9b95;
+            box-shadow: 0px 0px 12px rgba(255,155,149,0.5);
+            color: #fff;
+            span{
+                color: #fff;
+            }
+        }
+    }
+}

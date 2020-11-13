@@ -9,11 +9,10 @@
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.8.2",
     "antd-mobile": "^2.3.4",
-<<<<<<< HEAD
-    "rc-form": "2.4.11",
-=======
+    "axios": "^0.21.0",
+    "http-proxy-middleware": "^1.0.6",
     "node-sass": "4.14.1",
->>>>>>> 63ac3324697cc2da074e71c9a0a3dc001ec0353d
+    "rc-form": "2.4.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
