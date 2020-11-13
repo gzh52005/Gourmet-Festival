@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PageHeader, Input, Row, Col, Button, Radio, Table, Image } from "antd";
-import request from "../../untils/request";
+import request from "../../api/menuApi";
 import { AudioOutlined, DownloadOutlined } from "@ant-design/icons";
 import "./index.css";
 

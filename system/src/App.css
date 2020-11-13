@@ -11,19 +11,19 @@
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+/* .site-layout-background {
   background: #fff;
   height:320px;
   padding: 0;
   min-height: 1080px;
  
-}
+} */
 .font {
   font-size: 20px;
 }
 .nav {
-  height: 1000px;
-  background: rgb(238, 217, 245);
+  height: 900px;
+  background: rgb(228, 153, 228);
 }
 element.style{
   min-height: 1280px;

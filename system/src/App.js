@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 
-
 import {
   BrowserRouter as Router,
   Route,
@@ -12,26 +11,21 @@ import {
 
 import "./App.css";
 
-// 引入组件
-const Login = lazy(() => import("./views/login/index"));
-const Apps = lazy(() => import("./views/App/index"));
-
-import {HashRouter,BrowserRouter as Router,Route,Redirect,Switch,Link,NavLink, withRouter} from 'react-router-dom';
-
-import { Menu,Row, Col ,Button} from 'antd';
-
 import { Layout, Menu, Breadcrumb, Button, Row, Col } from "antd";
-import { Route, Redirect, withRouter } from "react-router-dom";
+
 import {
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
 } from "@ant-design/icons";
-import './App.css';
+
 import Daughter from "./views/route/index";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
+// 引入组件
+const Login = lazy(() => import("./views/login/index"));
+const Apps = lazy(() => import("./views/App/index"));
 
 //路由懒加载的实现：异步载入资源
 //import AuthRoute from "./permission"; //路由守卫
