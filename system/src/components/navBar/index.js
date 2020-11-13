@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Menu,Row, Col ,Button } from "react-router-dom";
 
 class NavBar extends React.Component {
+
+
   render() {
     return (
       <ul>
@@ -18,6 +20,8 @@ class NavBar extends React.Component {
           <Link to="/login">登录</Link>
         </li>
       </ul>
+
+      
     );
   }
 }
