@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.scss'
-import Swiper from 'swiper/dist/js/swiper.js'
-import 'swiper/dist/css/swiper.min.css'
+
 function Silde() {
     const [silde, changeSilde] = useState([
         {
@@ -24,11 +23,7 @@ function Silde() {
         }
     ])
     useEffect(function () {
-        new Swiper('.swiper-container', {
-            // loop: false,  //循环
-            slidesPerView: 2,
-            freeMode : true,
-        })
+
         // const fetch_promise=fetch("/api/meishijie/getlist?type=1&page=1&pageSize=3")
         // fetch_promise.then(function(res){
         //     return res.json()
