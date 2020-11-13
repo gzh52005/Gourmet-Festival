@@ -9,6 +9,8 @@
   bottom: 0;
   border-top: 1px solid rgb(224, 224, 224);
   padding-top: 6px;
+  z-index: 1;
+  background-color: #fff;
 }
 .flexItem {
   color: rgb(150, 154, 156);
