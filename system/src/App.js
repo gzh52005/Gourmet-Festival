@@ -1,27 +1,25 @@
 import React, { lazy, Suspense } from "react";
 
 
-import {
-  BrowserRouter as Router,
-  Route,
-  HashRouter,
-  Link,
-  Redirect,
-  withRouter,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   HashRouter,
+//   Link,
+//   Redirect,
+//   withRouter,
+// } from "react-router-dom";
 
-import "./App.css";
+// import "./App.css";
 
-// 引入组件
-const Login = lazy(() => import("./views/login/index"));
-const Apps = lazy(() => import("./views/App/index"));
+
 
 import {HashRouter,BrowserRouter as Router,Route,Redirect,Switch,Link,NavLink, withRouter} from 'react-router-dom';
 
-import { Menu,Row, Col ,Button} from 'antd';
+// import { Menu,Row, Col ,Button} from 'antd';
 
 import { Layout, Menu, Breadcrumb, Button, Row, Col } from "antd";
-import { Route, Redirect, withRouter } from "react-router-dom";
+// import { Route, Redirect, withRouter } from "react-router-dom";
 import {
   UserOutlined,
   LaptopOutlined,
@@ -29,6 +27,9 @@ import {
 } from "@ant-design/icons";
 import './App.css';
 import Daughter from "./views/route/index";
+// 引入组件
+const Login = lazy(() => import("./views/login/index"));
+const Apps = lazy(() => import("./views/App/index"));
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
