@@ -65,7 +65,7 @@ class App extends React.Component {
         <Suspense fallback={<div>loading</div>}>
           <Route path="/login" component={Login}></Route>
           <Route path="/app" component={Apps}></Route>
-          <Redirect from="/" to="/login" exact />
+          <Redirect from="/" to="/app/home" exact />
         </Suspense>
       </div>
     );

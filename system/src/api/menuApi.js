@@ -2,7 +2,7 @@
 import request from "../untils/request";
 
 
-export function get(url,data,config={}){
+export function get(url,data={},config={}){
     return  request({
           url,
           method:"get",
