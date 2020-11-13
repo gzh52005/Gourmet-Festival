@@ -1,5 +1,15 @@
-const baseUrl='http://120.25.208.234:3003'
-export function request(url,data,options={}){
-    url=baseUrl+url;
-    
+import request from '../utils/request';
+
+export default {
+    //首页瀑布流
+    tuijianWaterFall(type, page, pageSize) {
+        return request.get('/meishijie/getlist', {
+            params: {
+                type,
+                page,
+                pageSize
+            }
+        })
+    }
+
 }
