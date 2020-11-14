@@ -1,6 +1,7 @@
 import React from "react";
-import { Table, Button, Pagination,message,Space } from "antd";
+import { PageHeader,Table, Button, Pagination,message,Space,Popconfirm ,Row, Col, Input} from "antd";
 import userApi from "../../api/userApi";
+import Edit from "./userEdit"
 // function Users(){
 //     return(
 //         <div>
@@ -59,13 +60,24 @@ class Users extends React.Component{
                       </Button>
                     );
                   })} */}
-                <Button type="primary">编辑</Button> &nbsp; &nbsp;
+                <Button type="primary" onClick={this.showEdit.bind(this)}>编辑</Button> &nbsp; &nbsp;
+ 
                 <Button
                   type="danger"
                   onClick={this.delUser.bind(this, row._id)}
                 >
                   删除
                 </Button>
+
+                {/* <Popconfirm
+                title="是否删除该用户?"
+    onConfirm={this.confirm}
+    onCancel={this.cancel}
+    okText="Yes"
+    cancelText="No"
+  >
+    <a>nihao</a>
+  </Popconfirm> */}
               </React.Fragment>
             );
           },
@@ -98,6 +110,7 @@ class Users extends React.Component{
               search:{}, //查询条件
               total: 0, //总条数
               rowKey: [], //选中的行对应_id，用于删除多条数据
+              showEdit:false,//是否显示编辑页面
         }
         this.fetchData=this.fetchData.bind(this)
     }
@@ -122,6 +135,21 @@ class Users extends React.Component{
     //功能：进入页面就立马执行，获取数据
     componentDidMount() {
         this.fetchData(); //进入页面就发起请求获取第一页数据
+    }
+
+    //显示编辑页面
+    showEdit(){
+      this.setState({
+        showEdit:true
+      })
+      console.log(this.state.showEdit,'edit');
+    }
+
+    //关闭编辑页面
+    closeEdit(){
+      this.setState({
+        showEdit:false
+      })
     }
 
     //功能：翻页功能
@@ -150,7 +178,7 @@ class Users extends React.Component{
           message.success('删除成功');
           
           //1.直接重新获取新数据：耗费性能
-          this.fetchData();
+          // this.fetchData();
           //2.删除state的那条数据：性能更好
           let arr = this.state.dataSource.filter((item) => item._id != id);
           this.setState({
@@ -174,6 +202,18 @@ class Users extends React.Component{
         console.log("我要删除的数据是",this.state.rowKey);
     }
 
+    //删除按钮确认
+    // confirm() {
+    //   // this.delUser();
+    //   // console.log(e);
+    //   message.success('Click on Yes');
+    // }
+    
+    // cancel(e) {
+    //   console.log(e);
+    //   message.error('Click on No');
+    // }
+
     render() {
         const rowSelection = {
           // onChange: (selectedRowKeys, selectedRows) => {
@@ -193,7 +233,7 @@ class Users extends React.Component{
             };
           },
         };
-    
+        const {showEdit} = this.state;
         return (
           // <div className={style['tbpadding']}>
           // <div style={{ padding: "50px" }}>
@@ -209,9 +249,44 @@ class Users extends React.Component{
           //       total: 50,
           //     }}
           //   />
-          <div style={{ padding: "50px" }}>
+          
+
+          <div style={{ padding: "0px,50px,50px,50px" }}>
+            <PageHeader
+          className="site-page-header"
+          onBack={() => null}
+          title="用户管理"
+          subTitle="This is a subtitle"
+        />
+
+        {showEdit ? <Edit closeEdit={this.closeEdit.bind(this)}/>:''}
+
+        <Row className="input">
+          <Col span={3}>
+            <Input size="large" placeholder="请输入用户id" />
+          </Col>
+          <Col span={8} style={{ margin: "0 15px" }}>
+            <Input size="large" placeholder="用户名"/>
+          </Col>
+          <Col span={8}>
+            <Button
+              type="primary"
+              size="large"
+              style={{ background: "darkgoldenrod" }}
+            >
+              查询
+            </Button>
+            <Button type="primary" size="large" style={{ margin: "0 15px" }}>
+              新增
+            </Button>
+            <Button type="default" size="large">
+              重置
+            </Button>
+          </Col>
+        </Row>
             {/* 表格组件 */}
             <Table
+            style={{marginTop:'20px'}}
               rowSelection={rowSelection}
               dataSource={this.state.dataSource}
               columns={this.state.columns}
