@@ -30,6 +30,17 @@ testName(name){
             name
         }
     })
+},
+
+// 验证 token
+userToken(token){
+    return request.get('/user/verify',{
+        params:{
+            token
+        }
+    })
 }
+
+
 
 }

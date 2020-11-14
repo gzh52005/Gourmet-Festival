@@ -9,7 +9,7 @@
   bottom: 0;
   border-top: 1px solid rgb(224, 224, 224);
   padding-top: 6px;
-  z-index: 1;
+  z-index: 10;
   background-color: #fff;
 }
 .flexItem {
