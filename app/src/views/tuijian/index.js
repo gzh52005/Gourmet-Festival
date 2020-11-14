@@ -6,6 +6,8 @@ import { SearchOutlined } from "@ant-design/icons";
 import Silde from './silde'
 import Tjlink from './tjlinks'
 import Three from './three'
+import Bannar from './bannar'
+import WaterFall from './waterfall'
 class recommend extends React.Component {
   render() {
     return (
@@ -18,19 +20,22 @@ class recommend extends React.Component {
           <div className="titlesw">
             <h3 className="title_s2">今日热门</h3>
           </div>
-          <div className="silde_window">
-            {/* 轮播图 */}
-            <Silde />
-          </div>
+
+          {/* 轮播图 */}
+          <Silde />
+
           <div className="titlesw">
             <h3 className="title_s2">为你推荐</h3>
           </div>
-          <div className="tjlinksw">
-            {/* 推荐连接 */}
-            <Tjlink/>
-          </div>
 
-          <Three/>
+          {/* 推荐连接 */}
+          <Tjlink />
+
+          <Three />
+          {/* 广告轮播 */}
+          <Bannar/>
+          {/* 无限瀑布流 */}
+          <WaterFall/>
         </div>
       </div>
     );

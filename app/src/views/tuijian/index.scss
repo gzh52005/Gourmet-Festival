@@ -1,9 +1,10 @@
 @import '../../style/fit.scss';
 
 #tuijian {
+  padding-bottom: vw(60);
   .box {
     width: 100%;
-    height: 800px;
+    // height: 800px;
     background: #fff;
 
     .search_button {

@@ -103,7 +103,7 @@ class App extends React.Component {
                 <NavLink to={item.path}>
                   <div
                     className="flexItem"
-                    style={item.id === sign ? { color: "blue" } : {}}
+                    style={item.id === sign ? { color: "#f15a4f" } : {}}
                     onClick={this.setSign.bind(this, item.id)}
                   >
                     {item.icon}
