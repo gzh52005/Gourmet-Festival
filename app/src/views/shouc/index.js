@@ -2,7 +2,10 @@
 
 import React from 'react'
 
+import { withAuth } from "../../utils/hoc";
 
+
+@withAuth
 class collect extends React.Component {
 
   render() {

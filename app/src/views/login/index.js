@@ -22,7 +22,8 @@ async log(username,password){
    // 判断
     if(data.data.code==2000){
     Toast.success('登录成功');
-    this.props.history.push('/recommend')
+    localStorage.setItem('currentUser',JSON.stringify(data))
+    this.props.history.push('/collect')
   }else{
     Toast.fail('登录失败');
   }
