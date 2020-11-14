@@ -1,0 +1,37 @@
+.edit {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.divedit {
+  width: 400px;
+  /* height: 300px; */
+  background: rgba(247, 252, 250, 0.795);
+  position: absolute;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  margin-left: -180px;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: -150px;
+  padding: 10px;
+}
+
+.closeEdit {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background: none;
+}
+
+.divedit > p {
+  font-size: 20px;
+  margin: 10px 0px;
+}
