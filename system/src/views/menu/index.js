@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PageHeader, Input, Row, Col, Button, Radio, Table, Image } from "antd";
-import request from "../../untils/request";
+import request from "../../api/menuApi";
 import { AudioOutlined, DownloadOutlined } from "@ant-design/icons";
 import "./index.css";
 
@@ -22,6 +22,10 @@ const columns = [
   {
     title: "菜单类型",
     dataIndex: "Types",
+  },
+  {
+    title: "用户上传",
+    dataIndex: "user",
   },
   {
     title: "操作",
@@ -82,14 +86,11 @@ class Menu extends React.Component {
   };
 
   async componentDidMount() {
-    const { data } = await request.get("/meishijie/getlist", {
-      type: 1,
-      page: 1,
-      pageSize: 55,
-    });
-
+    const { data } = await request.get("/meishijie/getall", {});
+    // console.log(data.datalist,"55555555")
     let arr = [];
-    data.datalist.map((item) => {
+    data.datalist.map((item,index) => {
+     
       arr.push({
         key: item._id,
         name: item.author.id,
@@ -102,25 +103,26 @@ class Menu extends React.Component {
             src={item.img}
           />
         ),
-        Types: item.label.name,
+        Types: item.label ? item.label.name : "热门",
         operate: (
-                <div>
-                  <Button
-                    type="primary"
-                    size="large"
-                    style={{ background: "darkgoldenrod" }}
-                  >
-                    编辑
-                  </Button>
-                  <Button
-                    type="primary"
-                    size="large"
-                    style={{ background: "red", marginLeft: "15px" }}
-                  >
-                    删除
-                  </Button>
-                </div>
-              ),
+          <div>
+            <Button
+              type="primary"
+              size="large"
+              style={{ background: "darkgoldenrod" }}
+            >
+              编辑
+            </Button>
+            <Button
+              type="primary"
+              size="large"
+              style={{ background: "red", marginLeft: "15px" }}
+            >
+              删除
+            </Button>
+          </div>
+        ),
+        user: item.author.nickname,
       });
     });
     this.setState({
