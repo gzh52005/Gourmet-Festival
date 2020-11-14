@@ -1,6 +1,16 @@
 import React, { lazy, Suspense } from "react";
 
-import { Layout, Menu, Breadcrumb, Button, Row, Col, Dropdown,message } from "antd";
+import {
+  Layout,
+  Menu,
+  Breadcrumb,
+  Button,
+  Row,
+  Col,
+  Dropdown,
+  message,
+  Popconfirm,
+} from "antd";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import { withUser, withStorage, withAuth } from "../../untils/hoc";
 import {
@@ -59,32 +69,41 @@ class App extends React.Component {
       name: this.props.currentUser.data[0].name,
     });
   }
-  popup =({ key }) => {
-    console.log(key,"蔡徐坤")
-    //点击退出时清空localStore
-    if(key == "退出登录"){
-      localStorage.removeItem("currentUser");
-      sessionStorage.removeItem("currentUser");
-      console.log(this.state.name,"888888888888")
-      // this.setState({
-      //   name:"",
-      // })
-      this.props.history.push("/login");
-    }
-  };
+  popup = ({ key }) => {};
   render() {
     const { menu } = this.state;
+
+    function confirm(props) {
+      //点击退出时清空localStore
+      message.success("退出成功");
+      localStorage.removeItem("currentUser");
+      sessionStorage.removeItem("currentUser");
+      props.history.push("/login");
+    }
+
+    function cancel(e) {
+      message.error("取消退出");
+    }
     const menuUser = (
       <Menu onClick={this.popup}>
         <Menu.Item key="修改密码">
-          <a target="_blank"  rel="noopener noreferrer">
+          <a target="_blank" rel="noopener noreferrer">
             修改密码
           </a>
         </Menu.Item>
+        
         <Menu.Item key="退出登录">
-          <a target="_blank" rel="noopener noreferrer">
-            退出登录
-          </a>
+          <Popconfirm
+            title="你确定要退出吗?"
+            onConfirm={confirm.bind(this, this.props)}
+            onCancel={cancel}
+            okText="Yes"
+            cancelText="No"
+          >
+            <a target="_blank" rel="noopener noreferrer">
+              退出登录
+            </a>
+          </Popconfirm>
         </Menu.Item>
       </Menu>
     );
