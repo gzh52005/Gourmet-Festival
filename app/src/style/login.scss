@@ -1,7 +1,37 @@
-.goBack{
-    display:flex;
-    justify-content: space-between;
-h1{
-    
+@import './fit.scss';
+
+.am-navbar-left{
+    padding-left: 0px;
+    color: #f00;
+
 }
+.am-navbar-left-icon{
+    margin-right: 0px;
+}
+.am-navbar-light{
+    color: #f00;
+   
+}
+.am-list{
+    margin-top: 10px;
+}
+
+.logReg{
+    display: flex;
+    justify-content:center;
+    margin-top: 25px;
+   a{
+        display: inline-block;
+        vertical-align: top;
+        width: 62px;
+        margin: 0px 15px;
+        text-align: center;
+        // padding-top: 62px;
+        line-height: 30px;
+        color: #000;
+        font-size: 14px;
+    img{
+        width: 62px;
+    }
+    }
 }

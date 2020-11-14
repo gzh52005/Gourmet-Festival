@@ -1,0 +1,76 @@
+@import '../../../style/fit.scss';
+
+.con1w {
+    overflow-y: scroll;
+    .swiper-container {
+        width: vw(894);
+        height: vw(298);
+        padding: 0 vw(16);
+        .swiper-wrapper {
+            width: 100%;
+            // width: vw(298);
+            .swiper-slide {
+                float: left;
+                width: vw(266)!important;
+                height: vw(266)!important;
+                padding: vw(16);
+                .img {
+                    width: vw(266);
+                    height: vw(266);
+                    border-radius: 16px;
+                    overflow: hidden;
+                    box-shadow: 0px 0px 16px rgba(0, 0, 0, .3);
+                    position: relative;
+
+                    .background_img {
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    .t {
+                        font-size: vw(20);
+                        line-height: vw(30);
+                        color: #fff;
+                        padding: 0px 16px;
+                        position: absolute;
+                        left: 0px;
+                        bottom: vw(54);
+                        font-weight: 600;
+                        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+                    }
+                    .p{
+                        height: vw(30);
+                        padding: 0px 16px;
+                        position: absolute;
+                        left: 0px;
+                        bottom: vw(16);
+                        font-size: 0px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        .ico{
+                            width: vw(30);
+                            display: inline-block;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                        }
+                        .name{
+                            color: #fff;
+                            font-weight: bold;
+                            font-size: vw(14);
+                            vertical-align: middle;
+                            padding-left: 10px;
+                            max-width: 60%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Form, Input, Button, Checkbox, message } from "antd";
-import request from "../../untils/request";
+import request from "../../api/menuApi";
 function Login(props) {
   const layout = {
     labelCol: { span: 8 },
@@ -12,6 +12,7 @@ function Login(props) {
   };
   const onFinish = async (values) => {
     console.log("Success:", values);
+    //发送登录请求
     const { data } = await request.get("/user/login", {
       name: values.username,
       password: values.password,
@@ -19,6 +20,13 @@ function Login(props) {
     });
     if (data.code == 2000) {
       console.log(props, "88888888888");
+      //把用户信息存入本地（数据持久化）
+      if (values.remember) {
+        localStorage.setItem("currentUser", JSON.stringify(data));
+      } else {
+        sessionStorage.setItem("currentUser", JSON.stringify(data));
+      }
+
       props.history.push("/app");
     } else {
       message.error("用户名或密码错误!!!");

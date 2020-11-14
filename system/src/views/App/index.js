@@ -1,13 +1,16 @@
 import React, { lazy, Suspense } from "react";
 
-import { Layout, Menu, Breadcrumb, Button, Row, Col } from "antd";
+import { Layout, Menu, Breadcrumb, Button, Row, Col, Dropdown,message } from "antd";
 import { Route, Redirect, withRouter } from "react-router-dom";
+import { withUser, withStorage, withAuth } from "../../untils/hoc";
 import {
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
-import "./index.css";
+
+// import "./index.css";
 import Daughter from "../route/index";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -20,6 +23,7 @@ const { Header, Content, Sider } = Layout;
 // const LoginPage = lazy(() => import("./views/login"));
 // const Userspage = lazy(() => import("./views/users"));
 
+@withAuth
 class App extends React.Component {
   constructor() {
     super();
@@ -41,23 +45,60 @@ class App extends React.Component {
         },
       ],
       currentPath: "/home",
+      name: "",
     };
   }
 
   goto = (path) => {
-    console.log(path, "88888888888");
+    // console.log(path, "88888888888");
     this.props.history.push(path);
   };
-
+  componentDidMount() {
+    // console.log("aaaaaaaaaaaaa");
+    this.setState({
+      name: this.props.currentUser.data[0].name,
+    });
+  }
+  popup =({ key }) => {
+    console.log(key,"蔡徐坤")
+    //点击退出时清空localStore
+    if(key == "退出登录"){
+      localStorage.removeItem("currentUser");
+      sessionStorage.removeItem("currentUser");
+      console.log(this.state.name,"888888888888")
+      // this.setState({
+      //   name:"",
+      // })
+      this.props.history.push("/login");
+    }
+  };
   render() {
     const { menu } = this.state;
-
+    const menuUser = (
+      <Menu onClick={this.popup}>
+        <Menu.Item key="修改密码">
+          <a target="_blank"  rel="noopener noreferrer">
+            修改密码
+          </a>
+        </Menu.Item>
+        <Menu.Item key="退出登录">
+          <a target="_blank" rel="noopener noreferrer">
+            退出登录
+          </a>
+        </Menu.Item>
+      </Menu>
+    );
     return (
       <div>
         <Layout>
           <Header
             className="header"
-            style={{ position: "fixed", zIndex: 1, width: "100%" }}
+            style={{
+              position: "fixed",
+              zIndex: 1,
+              height: "69px",
+              width: "100%",
+            }}
           >
             {/* <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
@@ -78,18 +119,17 @@ class App extends React.Component {
                 </Menu>
               </Col>
               <Col span={12} style={{ textAlign: "right" }}>
-                <Button type="link" onClick={() => {}}>
-                  退出
-                </Button>
-
-                <React.Fragment>
-                  <Button type="link" onClick={this.goto.bind(this, "/reg")}>
-                    注册
-                  </Button>
-                  <Button type="link" onClick={this.goto.bind(this, "/login")}>
-                    登录
-                  </Button>
-                </React.Fragment>
+                <Dropdown overlay={menuUser}>
+                  <a
+                    className="ant-dropdown-link"
+                    // onClick={(e) => e.preventDefault()}
+                  >
+                    欢迎{" "}
+                    <span style={{ fontSize: "25px" }}>{this.state.name} </span>{" "}
+                    大笨蛋
+                    <DownOutlined />
+                  </a>
+                </Dropdown>
               </Col>
             </Row>
           </Header>
@@ -103,7 +143,7 @@ class App extends React.Component {
               height: "100vh",
               position: "fixed",
               left: 0,
-              top: 64,
+              top: 70,
             }}
           >
             <Menu className="nav" mode="inline" defaultSelectedKeys={["2"]}>

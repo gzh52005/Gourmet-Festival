@@ -4,10 +4,10 @@ import React, { Suspense, lazy } from "react";
 import { Flex } from "antd-mobile";
 import {
   HomeOutlined,
-  UsergroupAddOutlined,
-  ReadOutlined,
-  MedicineBoxOutlined,
-  UserOutlined,
+  PlayCircleOutlined,
+  ScheduleOutlined,
+  SketchOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 import { withRouter, Switch, Route, Redirect, NavLink } from "react-router-dom";
 //路由懒加载
@@ -17,11 +17,12 @@ const Classify = lazy(() => import("./views/fenlei/index")); //分类
 const Menu = lazy(() => import("./views/caidan/index")); //菜单
 const Collect = lazy(() => import("./views/shouc/index")); //收藏
 const Login = lazy(() => import("./views/login/index")); //登录
+const Reg = lazy(() => import("./views/reg/index")); //注册
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props,6666)
+    // console.log(props,6666)
     this.state = {
       menu: [
         {
@@ -34,25 +35,25 @@ class App extends React.Component {
           id: 2,
           title: "视频",
           path: "/video",
-          icon: <UsergroupAddOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
+          icon: <PlayCircleOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
         },
         {
           id: 3,
           title: "分类",
           path: "/classify",
-          icon: <ReadOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
+          icon: <ScheduleOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
         },
         {
           id: 4,
           title: "菜单",
           path: "/menu",
-          icon: <MedicineBoxOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
+          icon: <SketchOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
         },
         {
           id: 5,
           title: "收藏",
           path: "/collect",
-          icon: <UserOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
+          icon: <HeartOutlined style={{ fontSize: "22px",paddingTop:"6px" }} />,
         },
      
       ],
@@ -102,7 +103,7 @@ class App extends React.Component {
                 <NavLink to={item.path}>
                   <div
                     className="flexItem"
-                    style={item.id === sign ? { color: "blue" } : {}}
+                    style={item.id === sign ? { color: "#f15a4f" } : {}}
                     onClick={this.setSign.bind(this, item.id)}
                   >
                     {item.icon}
@@ -126,6 +127,7 @@ class App extends React.Component {
             <Route path="/menu" component={Menu} />
             <Route path="/collect" component={Collect} />
             <Route path="/login"  component={Login} />
+            <Route path="/reg"  component={Reg} />
             <Route
               path="/nopage"
               render={() => (
@@ -148,3 +150,8 @@ class App extends React.Component {
 }
 App = withRouter(App); // 高阶组件拿到 poprs
 export default App;
+// HomeOutlined,
+// PlayCircleOutlined,
+// ScheduleOutlined,
+// SketchOutlined,
+// HeartOutlined,
