@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { PageHeader, Input, Row, Col, Button, Radio, Table, Image,message } from "antd";
+import {
+  PageHeader,
+  Input,
+  Row,
+  Col,
+  Button,
+  Radio,
+  Table,
+  Image,
+  message,
+} from "antd";
 import request from "../../api/menuApi";
 import { AudioOutlined, DownloadOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -87,7 +97,7 @@ class Menu extends React.Component {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
     this.setState({ selectedRowKeys });
   };
- 
+
   async componentDidMount() {
     const { data } = await request.get("/meishijie/getall", {});
     // console.log(data.datalist,"55555555")
@@ -121,7 +131,7 @@ class Menu extends React.Component {
               style={{ background: "red", marginLeft: "15px" }}
               onClick={this.remove.bind(this, item._id)}
             >
-              删除
+              删除删除
             </Button>
           </div>
         ),
@@ -135,18 +145,18 @@ class Menu extends React.Component {
   remove = async (id) => {
     // console.log(this.state.datalist, "8888888888");
 
-    const data = await request.remove("/meishijie/remove", {
-      id,
-    }).then((res)=>{
-      
-    });
+    const data = await request
+      .remove("/meishijie/remove", {
+        id,
+      })
+      .then((res) => {});
     // if (data) {
-      message.success('删除成功');
-      let arr22 = this.state.datalist.filter((item) => item._id != id);
-      this.setState({
-        datalist: arr22,
-      });
-      console.log(arr22,"]]]]]]]]]]]]")
+    message.success("删除成功");
+    let arr22 = this.state.datalist.filter((item) => item._id != id);
+    this.setState({
+      datalist: arr22,
+    });
+    console.log(arr22, "]]]]]]]]]]]]");
     // }
   };
   render() {
