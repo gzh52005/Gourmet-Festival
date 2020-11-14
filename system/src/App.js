@@ -25,9 +25,6 @@ const Apps = lazy(() => import("./views/App/index"));
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-// 引入组件
-const Login = lazy(() => import("./views/login/index"));
-const Apps = lazy(() => import("./views/App/index"));
 
 //路由懒加载的实现：异步载入资源
 //import AuthRoute from "./permission"; //路由守卫

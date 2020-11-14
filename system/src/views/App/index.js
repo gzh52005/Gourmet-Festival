@@ -20,7 +20,7 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 
-// import "./index.css";
+import "./index.css";
 import Daughter from "../route/index";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
