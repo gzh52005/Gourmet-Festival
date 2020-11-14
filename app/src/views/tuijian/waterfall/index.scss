@@ -1,0 +1,71 @@
+@import '../../../style/fit.scss';
+
+.wf {
+    .wft_box {
+        padding: vw(32) vw(16) vw(16);
+
+        .title_s1 {
+            font-size: vw(16);
+            color: #666;
+            text-align: left;
+        }
+
+        .wf_nav {
+            text-align: left;
+            height: vw(36);
+            display: flex;
+            align-items: flex-end;
+
+            .t {
+                color: #666;
+                font-size: vw(16);
+                margin-right: vw(20);
+                z-index: 0;
+            }
+
+            .current {
+                color: #333;
+                font-size: vw(30);
+                font-weight: bold;
+                position: relative;
+
+                &::after {
+                    content: " ";
+                    display: block;
+                    width: 100%;
+                    height: 6px;
+                    border-radius: 3px;
+                    background-color: #ff9d9b;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+
+    .wf_content {
+        column-count: 2;
+        .wf_item {
+            width: vw(166.5);
+            break-inside: avoid;
+            .wf_box {
+                width: 100%;
+                border-radius: 7px;
+                overflow: hidden;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+                margin: 0;
+
+                img {
+                    width: 100%;
+                }
+
+                .wf_text {
+                    background-color: #fff;
+
+                }
+            }
+        }
+    }
+}

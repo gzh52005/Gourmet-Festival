@@ -80,7 +80,7 @@ function Three() {
                     return (
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '82.7vw', backgroundColor: '#fff' }}>
                             <div className="swiper-slide" key={item.id}>
-                                <div className="box">
+                                <div className="three_box">
                                     <a href={item.path1}>
                                         <figure>
                                             <img src={item.img1} alt="" />
@@ -90,7 +90,7 @@ function Three() {
                                         </figure>
                                     </a>
                                 </div>
-                                <div className="box">
+                                <div className="three_box">
                                     <a href={item.path2}>
                                         <figure>
                                             <img src={item.img2} alt="" />
