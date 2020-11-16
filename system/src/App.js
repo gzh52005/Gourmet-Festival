@@ -9,7 +9,6 @@ import {
   withRouter,
 } from "react-router-dom";
 
-import "./App.css";
 
 import { Layout, Menu, Breadcrumb, Button, Row, Col } from "antd";
 
@@ -20,12 +19,12 @@ import {
 } from "@ant-design/icons";
 
 import Daughter from "./views/route/index";
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-
 // 引入组件
 const Login = lazy(() => import("./views/login/index"));
 const Apps = lazy(() => import("./views/App/index"));
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
+
 
 //路由懒加载的实现：异步载入资源
 //import AuthRoute from "./permission"; //路由守卫

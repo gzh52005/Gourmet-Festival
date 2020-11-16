@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { PageHeader, Input, Row, Col, Button, Radio, Table, Image } from "antd";
+import {
+  PageHeader,
+  Input,
+  Row,
+  Col,
+  Button,
+  Radio,
+  Table,
+  Image,
+  message,
+} from "antd";
 import request from "../../api/menuApi";
 import { AudioOutlined, DownloadOutlined } from "@ant-design/icons";
 import "./index.css";
@@ -63,11 +73,14 @@ const columns = [
 // }
 
 class Menu extends React.Component {
-  state = {
-    selectedRowKeys: [], // Check here to configure the default column
-    loading: false,
-    datalist: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      selectedRowKeys: [], // Check here to configure the default column
+      loading: false,
+      datalist: [],
+    };
+  }
 
   start = () => {
     this.setState({ loading: true });
@@ -89,8 +102,7 @@ class Menu extends React.Component {
     const { data } = await request.get("/meishijie/getall", {});
     // console.log(data.datalist,"55555555")
     let arr = [];
-    data.datalist.map((item,index) => {
-     
+    data.datalist.map((item, index) => {
       arr.push({
         key: item._id,
         name: item.author.id,
@@ -117,8 +129,9 @@ class Menu extends React.Component {
               type="primary"
               size="large"
               style={{ background: "red", marginLeft: "15px" }}
+              onClick={this.remove.bind(this, item._id)}
             >
-              删除
+              删除删除
             </Button>
           </div>
         ),
@@ -129,7 +142,23 @@ class Menu extends React.Component {
       datalist: arr,
     });
   }
+  remove = async (id) => {
+    // console.log(this.state.datalist, "8888888888");
 
+    const data = await request
+      .remove("/meishijie/remove", {
+        id,
+      })
+      .then((res) => {});
+    // if (data) {
+    message.success("删除成功");
+    let arr22 = this.state.datalist.filter((item) => item._id != id);
+    this.setState({
+      datalist: arr22,
+    });
+    console.log(arr22, "]]]]]]]]]]]]");
+    // }
+  };
   render() {
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
